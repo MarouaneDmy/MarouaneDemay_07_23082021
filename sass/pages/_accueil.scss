@@ -1,0 +1,126 @@
+.recherche {
+    display: flex;
+    position: relative;
+    align-items: center;
+    .fa-search {
+        position: absolute;
+        right: 20px;
+        font-size: 32px;
+    }
+    .search {
+        width: 100%;
+        height: 69px;
+        padding-left: 20px;
+        font-size: 18px;
+        background-color: $color-primary;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        &::placeholder {
+            color: grey;
+        }
+    }
+}
+
+.tri {
+    button {
+        @include button;
+    }
+    .ingredients {
+        background-color: $color-blue;
+    }
+    .appareil {
+        background-color: $color-green;
+    }
+    .ustensiles {
+        background-color: $color-red;
+    }
+}
+
+.recettes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    article {
+        width: 380px;
+        height: 364px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-right: 58px;
+        margin-bottom: 30px;
+        .imageRecette {
+            height: 178px;
+            background-color: $color-secondary;
+            border-radius: 5px 5px 0 0;
+            margin: 0;
+        }
+    }
+}
+
+.footerRecette {
+    position: relative;
+    height: 186px;
+    background-color: $color-primary;
+    border-radius: 0 0 5px 5px;
+    margin: 0;
+    .nomRecette {
+        position: absolute;
+        width: 200px;
+        font-size: 18px;
+        font-weight: 400;
+        left: 20px;
+    }
+    .tempsRecette {
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        margin: 0;
+        top: 20px;
+        right: 25px;
+        .fa-clock {
+            position: absolute;
+            font-size: 20px;
+        } 
+        .minutes {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            margin-left: 30px;
+        }
+    }
+    .listeIngredients {
+        position: absolute;
+        width: 150px;
+        top: 65px;
+        left: 20px;
+        .ingredientRecette {
+            margin: 0;
+            font-size: 12px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+    .description {
+        position: absolute;
+        right: 20px;
+        top: 55px;
+        width: 140px;
+        height: 109px;
+        font-size: 12px;
+        line-height: var(--line-h);
+        max-height: calc(var(--line-h) * var(--nth-lines-trunc));
+        overflow: hidden;
+        padding-right: 16px;
+        text-align: justify;
+        &::after {
+            content: "...";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    
+}

@@ -1,0 +1,19 @@
+@mixin button {
+    position: relative;
+    width: 170px;
+    height: 69px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: none;
+    font-size: 18px;
+    color: white;
+    p {
+        margin-right: 40px;
+    }
+    em {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+}

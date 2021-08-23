@@ -1,0 +1,19 @@
+{
+  "name": "lespetitsplats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarouaneDmy/MarouaneDemay_07_23082021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarouaneDmy/MarouaneDemay_07_23082021/issues"
+  },
+  "homepage": "https://github.com/MarouaneDmy/MarouaneDemay_07_23082021#readme"
+}
