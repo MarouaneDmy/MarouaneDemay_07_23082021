@@ -1,5 +1,6 @@
 import DataManager from "./DataManager.js"
 import Recettes from "./Recettes.js"
+import AlgoTri from "./AlgoTri.js"
 
 (async function()  {
     
@@ -12,5 +13,11 @@ import Recettes from "./Recettes.js"
     // RECETTES
     const recettes = new Recettes(foundRecettes)
     recettes.display()
+    recettes.dropdownAll()
+
+    // ALGOTRI
+    const algo = new AlgoTri(foundRecettes)
+    console.log(foundRecettes[0].ustensils[0])
+    algo.executeFilterList()
 
 })()

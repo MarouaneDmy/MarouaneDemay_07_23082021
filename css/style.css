@@ -44,6 +44,49 @@ header {
   color: grey;
 }
 
+.tags {
+  display: flex;
+}
+.tags button {
+  position: relative;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+  width: auto;
+}
+.tags button p {
+  margin-right: 40px;
+}
+.tags button em {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}
+.tags button p {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.tags button em {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.tri {
+  display: flex;
+}
 .tri button {
   position: relative;
   width: 170px;
@@ -52,6 +95,7 @@ header {
   margin-top: 20px;
   margin-right: 20px;
   border: none;
+  cursor: pointer;
   font-size: 18px;
   color: white;
 }
@@ -66,11 +110,84 @@ header {
 .tri .ingredients {
   background-color: #3282F7;
 }
-.tri .appareil {
+.tri .ingredients .search-ingredient {
+  display: none;
+}
+.tri .appareils {
   background-color: #68D9A4;
+}
+.tri .appareils .search-appareil {
+  display: none;
 }
 .tri .ustensiles {
   background-color: #ED6454;
+}
+.tri .ustensiles .search-ustensile {
+  display: none;
+}
+.tri .search-open {
+  width: 667px;
+  height: 397px;
+  margin-bottom: -397px;
+  z-index: 1;
+}
+.tri .search-open .rotate {
+  transform: rotate(180deg);
+}
+.tri .search-open p {
+  display: none;
+}
+.tri .search-open .search-ingredient {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 400px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  background-color: #3282F7;
+}
+.tri .search-open .search-appareil {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 400px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  background-color: #68D9A4;
+}
+.tri .search-open .search-ustensile {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 400px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  background-color: #ED6454;
+}
+.tri .search-open .search-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 16px;
+  cursor: default;
+}
+.tri .search-open .search-list span {
+  margin: 4px;
+  cursor: pointer;
+}
+.tri .search-open .search-list h3 {
+  margin: 4px;
+  cursor: pointer;
 }
 
 .recettes {

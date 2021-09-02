@@ -6,6 +6,7 @@
     margin-top: 20px;
     margin-right: 20px;
     border: none;
+    cursor: pointer;
     font-size: 18px;
     color: white;
     p {
@@ -16,4 +17,16 @@
         right: 20px;
         top: 25px;
     }
+}
+
+@mixin input {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: white;
 }

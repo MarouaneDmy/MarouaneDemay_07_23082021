@@ -22,18 +22,91 @@
     }
 }
 
+.tags {
+    display: flex;
+    button {
+        @include button;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 37px;
+        width: auto;
+        p {
+            font-size: 14px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        em {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    }
+}
+
 .tri {
+    display: flex;
     button {
         @include button;
     }
     .ingredients {
         background-color: $color-blue;
+        .search-ingredient {
+            display: none;
+        }
     }
-    .appareil {
+    .appareils {
         background-color: $color-green;
+        .search-appareil {
+            display: none;
+        }
     }
     .ustensiles {
         background-color: $color-red;
+        .search-ustensile {
+            display: none;
+        }
+    }
+    .search-open {
+        width: 667px;
+        height: 397px;
+        margin-bottom: -397px;
+        z-index: 1;
+        .rotate {
+            transform: rotate(180deg);
+        }
+        p {
+            display: none;
+        }
+        .search-ingredient {
+            @include input;
+            background-color: $color-blue;
+        }
+        .search-appareil {
+            @include input;
+            background-color: $color-green;
+        }
+        .search-ustensile {
+            @include input;
+            background-color: $color-red;
+        }
+        .search-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: left;
+            margin-top: 50px;
+            margin-left: 16px;
+            cursor: default;
+            span {
+                margin: 4px;
+                cursor: pointer;
+            }
+            h3 {
+                margin: 4px;
+                cursor: pointer;
+            }
+        }
     }
 }
 

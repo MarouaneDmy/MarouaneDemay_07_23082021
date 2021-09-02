@@ -11,37 +11,48 @@
 </head>
 <body>
     <header>
+        <!-- Logo du site -->
         <p class="logo">
             <img src="images/logo.png" alt="Les petits plats Home page">
         </p>
     </header>
     
     <main>
+        <!-- Barre de recherche -->
         <section class="recherche">
             <em class="fas fa-search"></em>
             <input class="search" type="search" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
         </section>
+
+        <section class="tags">
+            
+        </section>
         
+        <!-- Différents bouttons de tri des recettes -->
         <section class="tri">
             <button class="ingredients">
-                <em class="fas fa-chevron-down"></em>
+                <em class="fas fa-chevron-down arrow-ingredient"></em>
                 <p>Ingredients</p>
+                <input class="search-ingredient" type="search" placeholder="Recherche un ingrédient">
+                <div class="search-list"></div>
             </button>
-            <button class="appareil">
-                <em class="fas fa-chevron-down"></em>
+            <button class="appareils">
+                <em class="fas fa-chevron-down arrow-appareil"></em>
                 <p>Appareil</p>
+                <input class="search-appareil" type="search" placeholder="Recherche un appareil">
+                <div class="search-list"></div>
             </button>
             <button class="ustensiles">
-                <em class="fas fa-chevron-down"></em>
+                <em class="fas fa-chevron-down arrow-ustensile"></em>
                 <p>Ustensiles</p>
+                <input class="search-ustensile" type="search" placeholder="Recherche un ustensile">
+                <div class="search-list"></div>
             </button>
         </section>
 
+        <!-- Liste de toutes les recettes -->
         <section class="recettes">
-            <!-- <article>
-                <p></p>
-                <footer></footer>
-            </article> -->
+           
         </section>
     </main>
     <script type ="module" src="./javascript/app.js"></script>
