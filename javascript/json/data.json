@@ -161,7 +161,7 @@
                     "quantity": 2
             },
             {
-                "ingredient": "Crème fraiche",
+                "ingredient": "Crème fraîche",
                 "quantity": 2,
                 "unit": "cuillères à soupe"
             },
@@ -361,11 +361,11 @@
             "ustensils": ["plat à gratin", "couteau","économe"]
         },{
             "id": 11,
-            "name": "Salade tomate, mozzarella et pommes",
+            "name": "Salade tomate , mozzarella et pommes",
             "servings": 4,
             "ingredients":[
                 {
-                    "ingredient": "Tomates cerises",
+                    "ingredient": "Tomate cerise",
                     "quantity": 250,
                     "unit": "grammes"
                 },
@@ -380,7 +380,7 @@
                     "unit": "tranches"
                 }, 
                 {
-                    "ingredient": "Pommes",
+                    "ingredient": "Pomme",
                     "quantity": 1
                 },
                 {
@@ -408,7 +408,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "Pommes",
+                    "ingredient": "Pomme",
                     "quantity": 8
                 },
                 {
@@ -505,7 +505,7 @@
         },
         {
             "id": 15,
-            "name": "Crêpes Chocolat Banane",
+            "name": "Crêpe Chocolat Banane",
             "servings": 10,
             "ingredients": [
                 {
@@ -568,7 +568,7 @@
                     "unit":"tiges"
                 },
                 {
-                    "ingredient": "huile d'olives",
+                    "ingredient": "huile d'olive",
                     "quantity": 2,
                     "unit": "cuillère à soupe"
                 }
@@ -670,7 +670,7 @@
         },
         {
             "id": 20,
-            "name": "Pates Carbonara",
+            "name": "Pâtes Carbonara",
             "servings": 5,
             "ingredients": [
                 {
@@ -684,7 +684,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "Crème fraiche",
+                    "ingredient": "Crème fraîche",
                     "quantity": 200,
                     "unit": "grammes"
                 },
@@ -734,7 +734,7 @@
                     "unit": "cl"
                 },
                 {
-                    "ingredient": "Crème Fraiche",
+                    "ingredient": "Crème Fraîche",
                     "quantity" : 1,
                     "unit": "cuillères à soupe"
                 }
@@ -895,7 +895,7 @@
         },
         {
             "id": 26,
-            "name": "Soupe de tomates",
+            "name": "Soupe de tomate",
             "servings": 2,
             "ingredients": [
                 {
@@ -907,7 +907,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Huile d'olives"
+                    "ingredient": "Huile d'olive"
                 },
                 {
                     "ingredient": "Oignon",
@@ -1026,7 +1026,7 @@
         },
         {
             "id": 30,
-            "name": "Purée de pois cassés",
+            "name": "Purée de pois cassé",
             "servings": 4,
             "ingredients": [
                 {
@@ -1063,7 +1063,7 @@
                     "quantity": 2
                 },
                 {
-                    "ingredient": "Haricots verts",
+                    "ingredient": "Haricot vert",
                     "quantity": 150,
                     "unit": "grammes"
                 },
@@ -1189,7 +1189,7 @@
         },
         {
             "id": 35,
-            "name": "Purée de carottes",
+            "name": "Purée de carotte",
             "servings": 2,
             "ingredients": [
                 {
@@ -1228,7 +1228,7 @@
         },
         {
             "id": 36,
-            "name": "Lasagne Courgettes et Chèvre",
+            "name": "Lasagne Courgette et Chèvre",
             "servings": 2,
             "ingredients": [
                 {
@@ -1267,7 +1267,7 @@
         },
         {
             "id": 37,
-            "name": "Courgettes farcies au boeuf",
+            "name": "Courgette farcie au boeuf",
             "servings": 2,
             "ingredients": [
                 {
@@ -1280,7 +1280,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "Huile d'olives",
+                    "ingredient": "Huile d'olive",
                     "quantity": 25,
                     "unit": "cl"
                 },
@@ -1289,7 +1289,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Coulis de tomates",
+                    "ingredient": "Coulis de tomate",
                     "quantity": 20,
                     "unit": "cl"
                 },
@@ -1629,7 +1629,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Tomates pelées",
+                    "ingredient": "Tomate pelée",
                     "quantity": 1,
                     "unit": "boites"
                 },
@@ -1660,11 +1660,11 @@
             "servings": 4,
             "ingredients": [
                 {
-                    "ingredient": "Bananes",
+                    "ingredient": "Banane",
                     "quantity": 2
                 },
                 {
-                    "ingredient": "Kiwis",
+                    "ingredient": "Kiwi",
                     "quantity": 3
                 },
                 {

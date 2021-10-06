@@ -1,18 +1,20 @@
+
+import Algo from "./Algo.js"
+
+
 const recettes = document.querySelector(".recettes")
 const tags = document.querySelector(".tags")
 const ingredients = document.querySelector(".ingredients")
 const appareils = document.querySelector(".appareils")
 const ustensiles = document.querySelector(".ustensiles")
-const arrow_ingredient = document.querySelector(".arrow-ingredient")
-const arrow_appareil = document.querySelector(".arrow-appareil")
-const arrow_ustensile = document.querySelector(".arrow-ustensile")
-const search_list = document.querySelectorAll(".search-list")
-
+const searchBarIngredient = document.querySelector(".search-ingredient")
+const searchBarAppareil = document.querySelector(".search-appareil")
+const searchBarUstensile = document.querySelector(".search-ustensile")
 
 export default class Recettes {
     constructor(data) {
         this.data = data
-        this.id = data.id;
+        this.id = data.id
         this.name = data.name;
         this.servings = data.servings
         this.ingredients = data.ingredients
@@ -20,6 +22,7 @@ export default class Recettes {
         this.description = data.description
         this.appliance = data.appliance
         this.ustensils = data.ustensils
+        this.filteredListeRecette = []
     }
 
     // Affiche toutes les recettes de la liste
@@ -80,187 +83,273 @@ export default class Recettes {
 
                 uniteIngredient.prepend(titreIngredient)
                 listeIngredients.appendChild(uniteIngredient)
-
             }
-
         }
     }
 
+    executeEventRecettes(){
+        this.listeIngredients(this.data)
+        this.listeAppareils(this.data)
+        this.listeUstensils(this.data)
+        this.searchListClose()
+        this.executeSearchBar()
+    }
+
+    searchListClose(){
+        const searchListIngredient = document.querySelector(".searchListIngredient")
+        const searchListAppareil = document.querySelector(".searchListAppareil")
+        const searchListUstensile = document.querySelector(".searchListUstensile")
+
+        // Ferme la recherche par ingrédient, appareil ou ustensiles
+        window.addEventListener("click", function(){
+            let elemCourant = document.activeElement
+
+            if (elemCourant.classList.contains("search-ingredient") || elemCourant.classList.contains("search-appareil") || elemCourant.classList.contains("search-ustensile") || elemCourant.classList.contains("tagElement") == true){
+
+            } else if (elemCourant.classList.contains("search-open") == false){
+                ingredients.classList.remove("search-open")
+                appareils.classList.remove("search-open")
+                ustensiles.classList.remove("search-open")  
+                searchListIngredient.classList.remove("displayList")
+                searchListAppareil.classList.remove("displayList")
+                searchListUstensile.classList.remove("displayList")
+            }
+        })
+    }
+
     // Crée une liste des ingrédients
-    listeIngredients(){        
+    listeIngredients(listeRecette){    
         let listeIngredientsDoublons = []
-        for(const recette of this.data){
+        for(const recette of listeRecette){
             for(const ingredient of recette.ingredients) {
                 listeIngredientsDoublons.push(ingredient.ingredient)
             }
         }
         let listeIngredients = [...new Set(listeIngredientsDoublons)]
-        
+
+        let search_list = document.createElement('div')
+
+        ingredients.appendChild(search_list)
+
+        search_list.classList.add('searchListIngredient')
+
         for(let i = 0; i < 30; i++){
             let ingredient = document.createElement('span')
 
-            ingredient.classList.add("tagList")
+            ingredient.classList.add("tagListIng")
 
             ingredient.textContent = listeIngredients[i]
-            ingredient.setAttribute("name", ingredient.textContent)
 
-            search_list[0].appendChild(ingredient)
-        }
+            search_list.appendChild(ingredient)
+        }   
+
     }
 
     // Crée une liste des appareils
-    listeAppareils(){
+    listeAppareils(listeRecette){
         let listeAppareilsDoublons = []
-        for(const recette of this.data){
+        for(const recette of listeRecette){
             listeAppareilsDoublons.push(recette.appliance)
         }
         let listeAppareils = [...new Set(listeAppareilsDoublons)]
+
+        let search_list = document.createElement('div')
+
+        appareils.appendChild(search_list)
+
+        search_list.classList.add('searchListAppareil')
         
         for(let i = 0; i < 30; i++){
             let appareil = document.createElement('span')
 
-            appareil.classList.add("tagList")
+            appareil.classList.add("tagListApp")
 
             appareil.textContent = listeAppareils[i]
 
-            search_list[1].appendChild(appareil)
+            search_list.appendChild(appareil)
         }
     }
 
     // Crée une liste des ustenciles de cuisine
-    listeUstensils(){
+    listeUstensils(listeRecette){
         let listeUstensilsDoublons = []
-        for(const recette of this.data){
+        for(const recette of listeRecette){
             for(const ustensil of recette.ustensils){
                 listeUstensilsDoublons.push(ustensil)
             } 
         }
         let listeUstensils = [...new Set(listeUstensilsDoublons)]
+
+        let search_list = document.createElement('div')
+
+        ustensiles.appendChild(search_list)
+
+        search_list.classList.add('searchListUstensile')
         
         for(let i = 0; i < 30; i++){
             let ustensile = document.createElement('span')
 
-            ustensile.classList.add("tagList")
+            ustensile.classList.add("tagListUst")
 
             if (i < listeUstensils.length == true) {
                 ustensile.textContent = this.strUcFirst(listeUstensils[i])
             }
 
-            search_list[2].appendChild(ustensile)
+            search_list.appendChild(ustensile)
         }
     }
 
-    dropdownAll(){
-        ingredients.addEventListener("click", this.dropdownIngredients.bind(this))
-        appareils.addEventListener("click", this.dropdownAppareils.bind(this))
-        ustensiles.addEventListener("click", this.dropdownUstensiles.bind(this))
-    }
+    changeListIngredient(liste){
+        const searchListIngredient = document.querySelector(".searchListIngredient")
 
-    dropdownIngredients(){
-        if(ingredients.classList.contains("search-open") == false){
-            this.clearSearchList()
-            this.listeIngredients()
-            this.tagList("#3282F7", "blue")
+        let listeIngredients = [...new Set(liste)]
+                 
+        searchListIngredient.innerHTML = ""
+
+        for(let i = 0; i < 30; i++){
+            let ingredient = document.createElement('span')
+
+            ingredient.classList.add("tagListIng")
+
+            if(tags.textContent.includes(listeIngredients[i])){
+                ingredient.classList.add("tagBlue")
+            }
+
+            ingredient.textContent = listeIngredients[i]
+
+            searchListIngredient.appendChild(ingredient)
         }
-        arrow_ingredient.classList.add("rotate")
-        ingredients.classList.add("search-open")
-        appareils.classList.remove("search-open")
-        ustensiles.classList.remove("search-open") 
-        this.closeSearch()
     }
 
-    dropdownAppareils(){
-        if(appareils.classList.contains("search-open") == false){
-            this.clearSearchList()
-            this.listeAppareils()
-            this.tagList("#68D9A4", "green")
+    changeListAppareil(liste){
+        const searchListAppareil = document.querySelector(".searchListAppareil")
+
+        let listeAppareils = [...new Set(liste)]
+
+        searchListAppareil.innerHTML = ""
+        
+        for(let i = 0; i < 30; i++){
+            let appareil = document.createElement('span')
+
+            appareil.classList.add("tagListApp")
+
+            if(tags.textContent.includes(listeAppareils[i])){
+                appareil.classList.add("tagGreen")
+            }
+
+            appareil.textContent = listeAppareils[i]
+
+            searchListAppareil.appendChild(appareil)
         }
-        arrow_appareil.classList.add("rotate")
-        appareils.classList.add("search-open")
-        ingredients.classList.remove("search-open")
-        ustensiles.classList.remove("search-open")
-        this.closeSearch()
     }
 
-    dropdownUstensiles(){
-        if(ustensiles.classList.contains("search-open") == false){
-            this.clearSearchList()
-            this.listeUstensils()
-            this.tagList("#ED6454", "red")
+    changeListUstensile(liste){
+        const searchListUstensile = document.querySelector(".searchListUstensile")
+
+        let listeUstensils = [...new Set(liste)]
+
+        searchListUstensile.innerHTML = ""
+        
+        for(let i = 0; i < 30; i++){
+            let ustensil = document.createElement('span')
+
+            ustensil.classList.add("tagListUst")
+
+            if(tags.textContent.includes(listeUstensils[i])){
+                ustensil.classList.add("tagRed")
+            }
+
+            ustensil.textContent = listeUstensils[i]
+
+            searchListUstensile.appendChild(ustensil)
         }
-        arrow_ustensile.classList.add("rotate")
-        ustensiles.classList.add("search-open")
-        ingredients.classList.remove("search-open")
-        appareils.classList.remove("search-open")
-        this.closeSearch()
     }
 
-    // VIde la div Search-List
-    clearSearchList(){
-        for(let i = 0; i < search_list.length; i++){
-            search_list[i].innerHTML = ""
-        }   
+    searchBarIngredient(){
+        this.filteredListeRecette = []
+
+        if(searchBarIngredient.value.length > 2){
+            this.filteredListeRecette = []
+            // Parcours toutes les recettes
+            for(const recette of this.data){
+                for(const ingredient of recette.ingredients) {
+                    if(ingredient.ingredient.toLowerCase().includes(searchBarIngredient.value.toLowerCase())) {
+                        this.filteredListeRecette.push(ingredient.ingredient)
+                        this.changeListIngredient(this.filteredListeRecette)
+                    }    
+                }
+            }     
+        } else if (searchBarIngredient.value.length < 3){
+            for(const recette of this.data){
+                for(const ingredient of recette.ingredients) {
+                    this.filteredListeRecette.push(ingredient.ingredient)
+                    this.changeListIngredient(this.filteredListeRecette)  
+                }
+            }
+        }
+        this.searchListClose()
+    }
+
+    searchBarAppareil(){
+        this.filteredListeRecette = []
+
+        if(searchBarAppareil.value.length > 2){
+            this.filteredListeRecette = []
+            // Parcours toutes les recettes
+            for(const recette of this.data){
+                if(recette.appliance.toLowerCase().includes(searchBarAppareil.value.toLowerCase())){
+                    this.filteredListeRecette.push(recette.appliance)
+                    this.changeListAppareil(this.filteredListeRecette)
+                }
+            }     
+        } else if (searchBarAppareil.value.length < 3){
+            for(const recette of this.data){
+                this.filteredListeRecette.push(recette.appliance)
+                this.changeListAppareil(this.filteredListeRecette)     
+            }  
+        }
+        this.searchListClose()
+    }
+
+    searchBarUstensile(){
+        this.filteredListeRecette = []
+
+        if(searchBarUstensile.value.length > 2){
+            this.filteredListeRecette = []
+            // Parcours toutes les recettes
+            for(const recette of this.data){
+                for(const ustensile of recette.ustensils){
+                    if(ustensile.toLowerCase().includes(searchBarUstensile.value.toLowerCase())){
+                        this.filteredListeRecette.push(this.strUcFirst(ustensile)) 
+                        this.changeListUstensile(this.filteredListeRecette)
+                    }   
+                }
+            }     
+        } else if (searchBarUstensile.value.length < 3){
+            for(const recette of this.data){
+                for(const ustensile of recette.ustensils){
+                    this.filteredListeRecette.push(this.strUcFirst(ustensile))
+                    this.changeListUstensile(this.filteredListeRecette)   
+                }    
+            }  
+        }
+        this.searchListClose()
+    }
+
+    executeSearchBar(){
+        searchBarIngredient.addEventListener('keyup', () =>{
+            this.searchBarIngredient()
+        })
+        searchBarAppareil.addEventListener('keyup', () =>{
+            this.searchBarAppareil()
+        })
+        searchBarUstensile.addEventListener('keyup', () =>{
+            this.searchBarUstensile()
+        })
     } 
 
     // Transforme la première lettre de la chaîne de caractère en majuscule
     strUcFirst(a) {
         return (a+'').charAt(0).toUpperCase()+a.substr(1)
     }
-
-    closeSearch(){
-        // Ferme la recherche par ingrédient, appareil ou ustensiles
-        window.addEventListener("click", function(){
-            let elemCourant = document.activeElement
-
-            const recette = new Recettes(elemCourant)
-
-            if (elemCourant.classList.contains("search-ingredient") || elemCourant.classList.contains("search-appareil") || elemCourant.classList.contains("search-ustensile") || elemCourant.classList.contains("tagElement") == true){
-
-            } else if (elemCourant.classList.contains("search-open") == false){
-                recette.clearSearchList()
-                ingredients.classList.remove("search-open")
-                appareils.classList.remove("search-open")
-                ustensiles.classList.remove("search-open") 
-            }
-        })
-    }
-
-    tagList(color, colorText){
-        let tagList = document.querySelectorAll(".tagList")
-        for(const tag of tagList){
-            tag.addEventListener("click", function(){ 
-                let button = document.createElement("button")
-                let em = document.createElement("em")
-                let tagName = document.createElement("p")
-
-                button.classList.add("tagElement")
-                em.classList.add("far")
-                em.classList.add("fa-times-circle")
-
-                button.style.background = color
-
-                tagName.textContent = tag.textContent
-                button.setAttribute("name", tagName.textContent)
-
-                if (tag.style.color !== colorText){
-                    tags.appendChild(button)
-                    button.prepend(em)
-                    button.appendChild(tagName)
-                }
-
-                tag.style.color = colorText
-            
-                // Supprime le tag
-                window.addEventListener("click", function(){
-                    let elemCourant = document.activeElement
-                
-                    if (elemCourant.classList.contains("tagElement")){
-                        tags.removeChild(elemCourant)
-                    }
-                })
-            })
-        }
-        
-    }
-
 }

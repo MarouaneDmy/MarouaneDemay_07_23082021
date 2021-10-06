@@ -83,6 +83,15 @@ header {
   right: 10px;
   top: 10px;
 }
+.tags #tagBlue {
+  background-color: #3282F7;
+}
+.tags #tagGreen {
+  background-color: #68D9A4;
+}
+.tags #tagRed {
+  background-color: #ED6454;
+}
 
 .tri {
   display: flex;
@@ -173,21 +182,72 @@ header {
   color: white;
   background-color: #ED6454;
 }
-.tri .search-open .search-list {
-  display: grid;
+
+.searchListIngredient {
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   text-align: left;
   margin-top: 50px;
   margin-left: 16px;
   cursor: default;
 }
-.tri .search-open .search-list span {
+.searchListIngredient span {
   margin: 4px;
   cursor: pointer;
 }
-.tri .search-open .search-list h3 {
+.searchListIngredient h3 {
   margin: 4px;
   cursor: pointer;
+}
+
+.searchListAppareil {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 16px;
+  cursor: default;
+}
+.searchListAppareil span {
+  margin: 4px;
+  cursor: pointer;
+}
+.searchListAppareil h3 {
+  margin: 4px;
+  cursor: pointer;
+}
+
+.searchListUstensile {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 16px;
+  cursor: default;
+}
+.searchListUstensile span {
+  margin: 4px;
+  cursor: pointer;
+}
+.searchListUstensile h3 {
+  margin: 4px;
+  cursor: pointer;
+}
+
+.displayList {
+  display: grid;
+}
+
+.tagBlue {
+  color: blue;
+}
+
+.tagGreen {
+  color: green;
+}
+
+.tagRed {
+  color: red;
 }
 
 .recettes {

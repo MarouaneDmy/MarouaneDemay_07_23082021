@@ -43,6 +43,15 @@
             top: 10px;
         }
     }
+    #tagBlue{
+        background-color: #3282F7;
+    }
+    #tagGreen{
+        background-color: #68D9A4;
+    }
+    #tagRed{
+        background-color: #ED6454;
+    }
 }
 
 .tri {
@@ -91,24 +100,37 @@
             @include input;
             background-color: $color-red;
         }
-        .search-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            text-align: left;
-            margin-top: 50px;
-            margin-left: 16px;
-            cursor: default;
-            span {
-                margin: 4px;
-                cursor: pointer;
-            }
-            h3 {
-                margin: 4px;
-                cursor: pointer;
-            }
-        }
     }
 }
+
+.searchListIngredient {
+    @include searchList;
+}
+
+.searchListAppareil {
+    @include searchList;
+}
+
+.searchListUstensile {
+    @include searchList;
+}
+
+.displayList{
+    display: grid;
+}
+
+.tagBlue{
+    color: blue;
+}
+
+.tagGreen{
+    color: green;
+}
+
+.tagRed{
+    color: red;
+}
+
 
 .recettes {
     display: grid;

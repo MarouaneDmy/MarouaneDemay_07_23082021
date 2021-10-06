@@ -1,6 +1,6 @@
 import DataManager from "./DataManager.js"
 import Recettes from "./Recettes.js"
-import AlgoTri from "./AlgoTri.js"
+import Algorithme from "./Algo.js"
 
 (async function()  {
     
@@ -8,16 +8,18 @@ import AlgoTri from "./AlgoTri.js"
     const dataManager = new DataManager()
     const chemin = "./javascript/json/data.json"
     const data = await dataManager.getData(chemin)
-    const foundRecettes = data.recettes.filter(recettes => recettes)
+    const foundRecettes = data.recettes
 
     // RECETTES
     const recettes = new Recettes(foundRecettes)
+    const algo = new Algorithme(foundRecettes)
+
     recettes.display()
-    recettes.dropdownAll()
+    recettes.executeEventRecettes()
 
-    // ALGOTRI
-    const algo = new AlgoTri(foundRecettes)
-    console.log(foundRecettes[0].ustensils[0])
-    algo.executeFilterList()
+    algo.searchListOpen()
 
+    // ALGOLINEAIRE (Boucle for)
+    algo.executeLinearSearch()
+    
 })()
