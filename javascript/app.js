@@ -1,6 +1,6 @@
 import DataManager from "./DataManager.js"
 import Recettes from "./Recettes.js"
-import Algorithme from "./Algo.js"
+import Algorithme from "./AlgoForeach"
 
 (async function()  {
     
@@ -19,7 +19,7 @@ import Algorithme from "./Algo.js"
 
     algo.searchListOpen()
 
-    // ALGOLINEAIRE (Boucle for)
-    algo.executeLinearSearch()
+    // ALGOLINEAIRE (méthode ForEach)
+    algo.executeForEachSearch()
     
 })()
