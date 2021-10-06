@@ -1,6 +1,6 @@
 import DataManager from "./DataManager.js"
 import Recettes from "./Recettes.js"
-import Algorithme from "./AlgoForeach"
+import Algorithme from "./AlgoForeach.js"
 
 (async function()  {
     
